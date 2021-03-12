@@ -54,6 +54,11 @@ JOIN Grade g ON a.GradeId = g.id
 WHERE g.id = 4;
 
 --12 How many poems are there per grade?
+SELECT count(p.id) 'total poems', g.name
+	FROM Poem p
+JOIN Author a ON a.id = p.AuthorId
+JOIN Grade g ON a.GenderId = g.id
+GROUP BY g.Name;
 
 
 --13 How many authors are in each grade? (Order your results by grade starting with 1st Grade)
