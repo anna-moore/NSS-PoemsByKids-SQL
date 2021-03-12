@@ -47,9 +47,11 @@ SELECT count(*) [Authors in 1st, 2nd, 3rd]
   OR a.GradeId = 3;
 
 --11 What is the total number of poems written by fourth graders?
-SELECT * 
+SELECT count(p.id) [total poems]
 	FROM Poem p
-WHERE p.
+JOIN Author a ON a.id = p.AuthorId
+JOIN Grade g ON a.GradeId = g.id
+WHERE g.id = 4;
 
 --12 How many poems are there per grade?
 
