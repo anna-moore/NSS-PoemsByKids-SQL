@@ -73,9 +73,17 @@ SELECT top 1 p.Title [poem with the most words] , p.WordCount
 ORDER BY p.WordCount desc;
 
 --15 Which author(s) have the most poems? (Remember authors can have the same name.)
-
+SELECT top 5 count(p.AuthorId) [poems by author], a.Name
+	FROM Poem p
+JOIN Author a on p.AuthorId = a.Id
+GROUP BY p.AuthorId, a.Name
+ORDER BY [poems by author] desc;
 
 --16 How many poems have an emotion of sadness?
+SELECT count(pe.Id) [total sadness poem]
+	FROM PoemEmotion pe
+JOIN Emotion e ON e.id = pe.PoemId
+WHERE e.Name = 'sadness';
 
 
 --17 How many poems are not associated with any emotion?
