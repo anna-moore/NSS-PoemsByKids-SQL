@@ -62,7 +62,10 @@ GROUP BY g.Name;
 
 
 --13 How many authors are in each grade? (Order your results by grade starting with 1st Grade)
-
+SELECT count(a.id) [total author] , g.Name
+	FROM Author a
+JOIN Grade g on a.GradeId = g.Id
+GROUP BY g.Name;
 
 --14 What is the title of the poem that has the most words?
 
