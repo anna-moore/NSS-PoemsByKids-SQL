@@ -68,7 +68,9 @@ JOIN Grade g on a.GradeId = g.Id
 GROUP BY g.Name;
 
 --14 What is the title of the poem that has the most words?
-
+SELECT top 1 p.Title [poem with the most words] , p.WordCount
+	FROM Poem p
+ORDER BY p.WordCount desc;
 
 --15 Which author(s) have the most poems? (Remember authors can have the same name.)
 
